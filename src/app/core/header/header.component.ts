@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {DataStorageService} from '../shared/data-storage.service';
-import {RecipeService} from '../recipes/recipe.service';
-import {AuthService} from '../auth/auth.service';
+import {DataStorageService} from '../../shared/data-storage.service';
+import {RecipeService} from '../../recipes/recipe.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   constructor(private dataStorageService: DataStorageService,
               private recipeService: RecipeService,
-              private authService: AuthService) {
+              public authService: AuthService) {
   }
 
 
@@ -32,6 +32,6 @@ export class HeaderComponent {
   }
 
   logout() {
-      this.authService.logout();
+    this.authService.logout();
   }
 }
