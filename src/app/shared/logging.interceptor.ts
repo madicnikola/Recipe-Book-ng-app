@@ -8,5 +8,4 @@ export class LoggingInterceptor implements HttpInterceptor {
       console.log('Logging interceptor'+event);
     });
   }
-
 }
