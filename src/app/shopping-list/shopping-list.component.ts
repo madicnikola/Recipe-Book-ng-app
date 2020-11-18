@@ -11,6 +11,7 @@ import {Store} from '@ngrx/store';
 })
 export class ShoppingListComponent implements OnInit {
   shoppingListState: Observable<{ ingredients: Ingredient[] }>;
+
   // private subscription: Subscription;
 
   constructor(private shoppingListService: ShoppingListService,
@@ -29,6 +30,7 @@ export class ShoppingListComponent implements OnInit {
   onEditItem(index: number) {
     this.shoppingListService.startedEditing.next(index);
   }
+
   // onIngredientAdded(ingredient: Ingredient) {
   //   this.shoppingListService.addIngredient(ingredient);
   // }
