@@ -1,5 +1,4 @@
 import {Ingredient} from '../shared/ingredient.model';
-import {EventEmitter} from '@angular/core';
 import {Subject} from 'rxjs';
 
 export class ShoppingListService {
@@ -17,15 +16,6 @@ export class ShoppingListService {
     return this.ingredients[index];
   }
 
-  getIngredients(): Ingredient[] {
-    return this.ingredients.slice();
-  }
-
-
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
-  }
 
   AddIngredients(newIngredients: Ingredient[]) {
     // newIngredients.forEach(
