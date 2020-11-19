@@ -1,12 +1,10 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/take';
-
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../store/app.reducers';
 import * as fromAuth from '../auth/store/auth.reducers';
+import {switchMap, take} from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -17,11 +15,11 @@ export class AuthInterceptor implements HttpInterceptor {
     console.log('Intercepted!', req);
     // const copiedReq = req.clone({headers: req.headers.append('', '')});
     return this.store.select('auth')
-      .take(1)
-      .switchMap((authState: fromAuth.State) => {
+      .pipe(take(1))
+      .pipe(switchMap((authState: fromAuth.State) => {
         const copiedReq = req.clone({params: req.params.set('auth', authState.token)});
         return next.handle(copiedReq);
-      });
+      }));
   }
 
 }
