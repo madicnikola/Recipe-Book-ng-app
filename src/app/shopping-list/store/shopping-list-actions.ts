@@ -41,6 +41,7 @@ export class StartEdit implements Action {
   constructor(public payload: number) {
   }
 }
+
 export class StopEdit implements Action {
   readonly type: string = STOP_EDIT;
 }

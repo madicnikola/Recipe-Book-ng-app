@@ -10,7 +10,7 @@ import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/app.reducers';
 import {EffectsModule} from '@ngrx/effects';
 import {AuthEffects} from './auth/store/auth.effects';
-// import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
@@ -26,7 +26,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     AuthModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
-    // StoreRouterConnectingModule,
+    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({logOnly: true}),
   ],
   bootstrap: [AppComponent],
